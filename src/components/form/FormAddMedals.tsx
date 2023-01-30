@@ -101,7 +101,17 @@ const FormAddMedals = () => {
     <div className="shadow-md sm:rounded-lg p-6 w-1/2">
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CustomInputSelect
+        <CustomInput
+              type={"text"}
+              name={"country"}
+              required
+              label={"country"}
+              placeholder={"Enter the country name"}
+              error={errors.country?.message}
+              register={register}
+            />
+          {/* There was a problem with the API. The API is returning a 503 error */}
+          {/* <CustomInputSelect
             required
             label="Select country"
             error={errors?.country?.message}
@@ -117,7 +127,7 @@ const FormAddMedals = () => {
               )}
               rules={{ required: true }}
             />
-          </CustomInputSelect>
+          </CustomInputSelect> */}
 
           <div className="lg:flex justify-evenly ">
             <CustomInput
