@@ -55,7 +55,7 @@ const FormAddMedals = () => {
 
   const options = useMemo(
     () =>
-    countryOptions
+      countryOptions
         ? countryOptions?.map((name: string, id: string) => ({
             value: id,
             label: name,
@@ -101,7 +101,10 @@ const FormAddMedals = () => {
     <div className="shadow-md sm:rounded-lg p-6 w-1/2">
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <CustomInput
+          {/* After sending the task, the API from which the data was pulled sent
+          a 503, so there is also a space to enter the country in the regular form
+          if the API would stop working further */}
+          {/* <CustomInput
               type={"text"}
               name={"country"}
               required
@@ -109,9 +112,9 @@ const FormAddMedals = () => {
               placeholder={"Enter the country name"}
               error={errors.country?.message}
               register={register}
-            />
-          {/* There was a problem with the API. The API is returning a 503 error */}
-          {/* <CustomInputSelect
+            /> */}
+
+          <CustomInputSelect
             required
             label="Select country"
             error={errors?.country?.message}
@@ -127,7 +130,7 @@ const FormAddMedals = () => {
               )}
               rules={{ required: true }}
             />
-          </CustomInputSelect> */}
+          </CustomInputSelect>
 
           <div className="lg:flex justify-evenly ">
             <CustomInput
